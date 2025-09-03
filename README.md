@@ -60,5 +60,5 @@ const createPage = (data, mapping) => {
 <img width="815" height="487" alt="image" src="https://github.com/user-attachments/assets/dce56eb7-698e-49a2-9231-2a5201182b2e" />
 
 
-*mapping can be used to access different nodes in the polled address response**,
-or to adapt the markup to a different polling json structre.
+mapping can be used to access different nodes in the polled address response,
+or to adapt the markup to a different polling json structure.
