@@ -3,8 +3,7 @@ This plugin demonstrates how a single markup can udisplay multiple sources of da
 Instead of static values, parameters can describe mapings into the pollng result json.
 The mapping syntax is defined by JSPath (https://github.com/dfilatov/jspath)
 
-This mapping allows to select any value from the polling address response json, and a simple javascript function all
-binds the mapping to values, then assigns thm to any graphcal copmonent.
+This mapping allows to select any value from the polling address response json, and simple javascript functions binds mappings to values, then assigns them to graphical copmonent.
 
 Given this polling response:
 ```
@@ -47,20 +46,23 @@ we can create a simple markup to display a text and a banner:
 ```
 
 3 parameters to describe access to polling response be used to update the HTML conent
-<img width="1006" height="876" alt="image" src="https://github.com/user-attachments/assets/a3dc3e07-9373-48bc-8a10-443dc31b4faf" />
+
+<img width="500" height="413" alt="image" src="https://github.com/user-attachments/assets/9503f200-a4b7-4e30-bcb6-21e6e799bc1f" />
 
 
 Simple Javascript then assigns values to graphical elements
 ```
 const createPage = (data, mapping) => {
     const title = resolveMapping(data, mapping["title"]);
-     setContents("title", title);
+    setContents("title", title);
     const publisher = resolveMapping(data, mapping["title"]);
-     setContents("title", title); 
+    setContents("title", title);
+    const text = resolveMapping(data, mapping.text)
+    setContents("text", text);
+  }
 ```
 
-<img width="815" height="487" alt="image" src="https://github.com/user-attachments/assets/dce56eb7-698e-49a2-9231-2a5201182b2e" />
+the resut is
 
+<img width="605" height="355" alt="image" src="https://github.com/user-attachments/assets/9c671339-e6dc-4201-89c7-05e2e4c7e8fc" />
 
-mapping can be used to access different nodes in the polled address response,
-or to adapt the markup to a different polling json structure.
