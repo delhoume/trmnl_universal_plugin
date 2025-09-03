@@ -1,0 +1,50 @@
+{% assign data = IDX_0 | json %}
+{% assign mapping = trmnl.plugin_settings.custom_fields_values | json %} 
+
+
+<div class="layout layout--row" id="content">
+  <span id="text" class="value value--large" data-value-fit="true"></span>
+</div>
+
+<div class="title_bar">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAQAAADYBBcfAAAAAmJLR0QA/4ePzL8AAAD5SURBVDjL7ZIxCgIxEEXfESxSW3uA7VLY21jYCkJKwVZsxD6d2KfbAywInmAvYCd7AsE7jIUDGt1kBe10fpOZyYOZ5MOvxYyKRWtnQcUsDXqE0NoJCD4NDlmyxjOPqnM8a5YM8+M6hDqq1AguDxU4AkKDe1CDEHAU+R3TSuw4wFIinKk5RsCRmjNCiWXwClZ6LQA2Aq2+qiBUMdTDcNBWiWEUgSMMpZ4PGHp38JTd7VmnL4FTDLsssMMwfQXHb33HOA3usS3ad4N5kz+BExx9tdyKQCCwBWCr2Uot18cxSZtcEC4AXDTrMPnN6B6PZwPARrOiG/zH53EFOQjUxRWJt98AAAAASUVORK5CYII="/>
+  <span id="title" class="title"></span>
+  <span id="subtitle" class="instance"></span>
+</div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/jspath@0.4.0/jspath.min.js"></script>
+<script type="text/javascript">
+  const resolveMapping = (data, mapping, single = true) => {
+    return mapping.replace(
+      /{([^}]+)}/g,
+      (a, b) => {
+        return resolveObjectPath(data, b, single);
+      }
+    )
+  }
+  const resolveObjectPath = (data, path, single = true) => {
+    if (path.startsWith("#"))
+      return path.substring(1);
+    const result = JSPath.apply(path, data);
+    return single == false ? result : (result.length > 0 ? result[0] : "");
+  }
+
+  const setContents = (id, text) => {
+    const elt = document.getElementById(id);
+    if (elt) elt.innerHTML = text;
+  }
+
+
+  const createPage = (data, mapping) => {
+    const title = resolveMapping(data, mapping["title"]);
+     setContents("title", title);
+    const subtitle = resolveMapping(data, mapping["subtitle"]);
+    setContents("subtitle", subtitle);
+    const text = resolveMapping(data, mapping.text)
+   setContents("text", text);
+  }
+ document.addEventListener("DOMContentLoaded", function (e) {
+    createPage({{data}}, {{mapping}});
+  });
+</script>
+

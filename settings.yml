@@ -1,0 +1,25 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+polling_url: "https://awazleon.space/cities/pa/info\r\n\r\nhttps://yesno.wtf/api"
+polling_headers: ''
+polling_body: ''
+id: 36303
+custom_fields:
+- keyname: title
+  field_type: string
+  name: title
+  description: JSPath for title in polled data
+- keyname: subtitle
+  field_type: string
+  name: subtitle
+  description: JSPath for subtitle in polled data
+- keyname: text
+  field_type: string
+  name: text
+  description: JSPath for text in polled data
+name: 'Universal Plugin Text '
+refresh_interval: 1440
