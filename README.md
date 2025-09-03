@@ -36,13 +36,15 @@ Given this polling response:
 
 we can create a simple markup to display a text and a banner:
 
-```<div class="layout layout--row" id="content">
+```
+<div class="layout layout--row" id="content">
   <span id="text" class="value value--large" data-value-fit="true"></span>
 </div>
 <div class="title_bar">
     <span id="title" class="title"></span>
   <span id="subtitle" class="instance"></span>
-</div>```
+</div>
+```
 
 3 parameters to describe access to polling response be used to update the HTML conent
 <img width="1006" height="876" alt="image" src="https://github.com/user-attachments/assets/a3dc3e07-9373-48bc-8a10-443dc31b4faf" />
