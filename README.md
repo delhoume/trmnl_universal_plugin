@@ -3,7 +3,7 @@ This plugin demonstrates how a single markup can udisplay multiple sources of da
 Instead of static values, parameters can describe mapings into the pollng result json.
 The mapping syntax is defined by JSPath (https://github.com/dfilatov/jspath)
 
-This mapping allows to select any value from the polling address response json, and simple javascript functions binds mappings to values, then assigns them to graphical copmonent.
+This mapping allows to select any value from the polling address response json, and simple javascript functions binds mappings to values, then assigns them to graphical components.
 
 Given this polling response:
 ```
@@ -45,7 +45,7 @@ we can create a simple markup to display a text and a banner:
 </div>
 ```
 
-3 parameters to describe access to polling response be used to update the HTML conent
+3 parameters to describe access to polling response to be used to update the HTML content
 
 <img width="500" height="413" alt="image" src="https://github.com/user-attachments/assets/9503f200-a4b7-4e30-bcb6-21e6e799bc1f" />
 
@@ -62,7 +62,7 @@ const createPage = (data, mapping) => {
   }
 ```
 
-the resut is
+the result is
 
 <img width="605" height="355" alt="image" src="https://github.com/user-attachments/assets/9c671339-e6dc-4201-89c7-05e2e4c7e8fc" />
 
